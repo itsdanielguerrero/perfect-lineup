@@ -10,11 +10,12 @@ function getPositionCounts(lineup) {
   //use reduce to count how many player in lineup play same positions
   return lineup.reduce((positions, player) => {
     const {position} = player
-    //conditinal statement - checks if player position is in our table then update by 1
-    const addPosition = positions [position]||[]
-    const updatePosition = addPosition + 1
-    //update my table, use parseInt() to turn my count into a integer
-    return {...positions, [position]: parseInt(updatePosition)}
+    //conditinal statement - checks if player position is in our table,
+    //then update by 1 then assigns value to my new array
+    const addPosition = positions [position]|| 0
+    const updatePosition = addPosition + 1 //then update by 1 
+    //update my table
+    return {...positions, [position]: updatePosition}
   }, {})
 }
 
