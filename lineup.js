@@ -1,9 +1,22 @@
 function calculateTotalSalary(lineup) {
-  return 0
+  //use reduce to calculate total salary
+  return lineup.reduce((totalSalary, player) => {
+    //anonymous functions to add up total salary
+    return  totalSalary + player.salary
+  }, 0)
 }
 
 function getPositionCounts(lineup) {
-  return {}
+  //use reduce to count how many player in lineup play same positions
+  return lineup.reduce((positions, player) => {
+    const {position} = player
+    //conditinal statement - checks if player position is in our table,
+    //then update by 1 then assigns value to my new variable
+    const addPosition = positions [position]|| 0
+    const updatePosition = addPosition + 1 //then update by 1 
+    //update my table
+    return {...positions, [position]: updatePosition}
+  }, {})
 }
 
 function getGameCounts(lineup) {
